@@ -19,16 +19,12 @@ public class InheritanceExample {
         book.setNoOfCopies(15);
         book.setAuthor("Vince Gilligan");
 
-        System.out.println(book.toString());
-
         JournalPaper journalPaper = new JournalPaper();
         journalPaper.setIdentificationNumber(102);
         journalPaper.setTitle("Squid Game");
         journalPaper.setNoOfCopies(25);
         journalPaper.setAuthor("Kim-ju");
         journalPaper.setYearPublished(2022);
-
-        System.out.println(journalPaper.toString());
 
         Video video = new Video();
         video.setIdentificationNumber(103);
@@ -39,8 +35,6 @@ public class InheritanceExample {
         video.setGenre("Crime");
         video.setYearReleased(2011);
 
-        System.out.println(video.toString());
-
         CD cd = new CD();
         cd.setIdentificationNumber(104);
         cd.setTitle("IronMan");
@@ -49,8 +43,41 @@ public class InheritanceExample {
         cd.setArtist("Tonk Stark");
         cd.setGenre("Action");
 
+        System.out.println("Initial Items:");
+        System.out.println(book.toString());
+        System.out.println(journalPaper.toString());
+        System.out.println(video.toString());
         System.out.println(cd); //cd implicitly call to the cd.toString() method
 
+        System.out.println("After CheckOut:");
+        book.checkOut();
+        journalPaper.checkOut();
+        video.checkOut();
+        cd.checkOut();
+        System.out.println(book.toString());
+        System.out.println(journalPaper.toString());
+        System.out.println(video.toString());
+        System.out.println(cd); //cd implicitly call to the cd.toString() method
+
+        System.out.println("After CheckIn:");
+        book.checkIn();
+        journalPaper.checkIn();
+        video.checkIn();
+        cd.checkIn();
+        System.out.println(book.toString());
+        System.out.println(journalPaper.toString());
+        System.out.println(video.toString());
+        System.out.println(cd); //cd implicitly call to the cd.toString() method
+
+        System.out.println("After Adding Copies:");
+        book.addItem(90);
+        journalPaper.addItem(80);
+        video.addItem(70);
+        cd.addItem(60);
+        System.out.println(book.toString());
+        System.out.println(journalPaper.toString());
+        System.out.println(video.toString());
+        System.out.println(cd); //cd implicitly call to the cd.toString() method
     }
 }
 
@@ -93,13 +120,18 @@ abstract class Item{
         this.title = title;
     }
 
-//    @Override
-//    public String toString() {
-//        return getIdentificationNumber() + " " + getTitle() + " " + getNoOfCopies();
-//    }
+    public void checkIn(){
+        this.noOfCopies = this.noOfCopies+1;
+    }
 
-    public void addItem(){
-        System.out.println("Item added..");
+    public void checkOut(){
+        if(this.noOfCopies>0){
+            this.noOfCopies = this.noOfCopies-1;
+        }
+    }
+
+    public void addItem(int item){
+        this.noOfCopies = this.noOfCopies+item;
     }
 }
 

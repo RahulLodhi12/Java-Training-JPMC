@@ -2,6 +2,15 @@ package Session;
 
 public class InheritanceDemo {
     public static void main(String[] args){
+        //The dot (.) operator is used with objects (non-primitive types) and class names
+        // to access their members such as fields, methods, or inner classes.
+
+        int value = 1234;
+//        System.out.println(value.indexOf(2)); //error
+
+        String s = "1234";
+        System.out.println(s.indexOf("2")); //String is a class, so we can use dot(.) operator
+
         new Pradeep().play();
 
         new Pradeep().eat();
