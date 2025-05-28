@@ -22,11 +22,11 @@ import java.util.*;
 
 public class CollectionsDemo {
     public static void main(String[] args){
-//        new ListDemo().work();
+        new ListDemo().work();
 
 //        new SetDemo().work();
 
-        new MapDemo().work();
+//        new MapDemo().work();
     }
 }
 
@@ -71,6 +71,7 @@ class ListDemo{
         list2.add(89.77f);
         list2.add(false);
         list2.add(new Phone(8,128,"iQOO"));
+
 
         System.out.println(list2);
 
