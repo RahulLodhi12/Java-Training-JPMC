@@ -81,7 +81,7 @@ public class StudentDetails{
 
                 if(ch=='a') {
                     System.out.println("Sort by first-name");
-//					Collections.sort(students, new SortByFirstName()); //1. Normal way - implements Comparator
+//					Collections.sort(students, new SortByFirstName()); //1. Traditional way - implements Comparator
 
 //                    Collections.sort(list<Object>); -> Object which implements Comparable interface
 
@@ -96,11 +96,12 @@ public class StudentDetails{
                             String s1FirstName = s1token.nextToken();
                             String s2FirstName = s2token.nextToken();
 
-                            return s1FirstName.compareTo(s2FirstName);
+                            return s1FirstName.compareTo(s2FirstName); //compareTo() belong to "String" class -> already define logic.
+                            //instead of compareTo(), we can use if-else statements as well.
                         }
                     });
 
-//					Collections.sort(students,(s1,s2)->{ //3. lambda exp.
+//					Collections.sort(students,(s1,s2)->{ //3. Lambda exp.
 //						String s1name = s1.getName();
 //						String s2name = s2.getName();
 //						StringTokenizer s1token = new StringTokenizer(s1name, " ");
@@ -120,7 +121,7 @@ public class StudentDetails{
                 }
                 else if(ch=='b') {
                     System.out.println("Sort by second-name");
-//					Collections.sort(students, new SortBySecondName()); //1. normal way - implements Comparator
+//					Collections.sort(students, new SortBySecondName()); //1. Traditional way - implements Comparator
 
                     Collections.sort(students, new Comparator<Student>(){ //2. Anonymous-class
                         @Override
@@ -155,7 +156,7 @@ public class StudentDetails{
                     });
 
 
-//					Collections.sort(students,(s1,s2)->{ //3. lambda exp.
+//					Collections.sort(students,(s1,s2)->{ //3. Lambda exp.
 //						String s1name = s1.getName();
 //						String s2name = s2.getName();
 //						StringTokenizer s1token = new StringTokenizer(s1name, " ");
@@ -193,7 +194,7 @@ public class StudentDetails{
                 else if(ch=='c') {
                     System.out.println("Sort by id");
 
-//					Collections.sort(students, new SortById()); //1. normal way - via implements Comparator
+//					Collections.sort(students, new SortById()); //1. Traditional way - via implements Comparator
 
                     Collections.sort(students, new Comparator<Student>(){ //2. Anonymous-class
                         @Override
@@ -202,7 +203,7 @@ public class StudentDetails{
                         }
                     });
 
-//					Collections.sort(students,(s1,s2)->{ //3. lambda exp.
+//					Collections.sort(students,(s1,s2)->{ //3. Lambda exp.
 //						return ((Integer)s1.getId()).compareTo((Integer)s2.getId());
 //					});
 
@@ -214,7 +215,7 @@ public class StudentDetails{
                 }
                 else if(ch=='d') {
                     System.out.println("Sort by domain");
-//					Collections.sort(students, new SortByDomain()); //1. normal way - via implements Comparator
+//					Collections.sort(students, new SortByDomain()); //1. Traditional way - via implements Comparator
 
                     Collections.sort(students, new Comparator<Student>(){ //2. Anonymous-class
                         @Override
@@ -223,7 +224,7 @@ public class StudentDetails{
                         }
                     });
 
-//					Collections.sort(students,(s1,s2)->{ //3. lambda exp.
+//					Collections.sort(students,(s1,s2)->{ //3. Lambda exp.
 //						return s1.getDomain().compareTo(s2.getDomain());
 //					});
 
@@ -260,6 +261,7 @@ public class StudentDetails{
 //	}
 //}
 //
+
 //class SortBySecondName implements Comparator<Student>{
 //	@Override
 //	public int compare(Student s1, Student s2) {
@@ -292,6 +294,7 @@ public class StudentDetails{
 //	}
 //}
 //
+
 //class SortById implements Comparator<Student>{
 //	@Override
 //	public int compare(Student s1, Student s2){
@@ -299,6 +302,7 @@ public class StudentDetails{
 //	}
 //}
 //
+
 //class SortByDomain implements Comparator<Student>{
 //	@Override
 //	public int compare(Student s1, Student s2) {
